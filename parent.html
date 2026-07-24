@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>学员版 · 星河</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#F5F6F8;color:#1A1A2E;padding-bottom:72px;-webkit-tap-highlight-color:transparent}
+.hd{color:#fff;padding:14px 16px;background:linear-gradient(135deg,#FF6B35,#FF8C5A);position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:12px}
+.hd a{color:#fff;text-decoration:none;font-size:22px;line-height:1}
+.hd .t{font-size:18px;font-weight:700}.hd .s{font-size:11px;opacity:.85;margin-top:2px}
+.content{padding:14px}
+.sec{margin-top:22px;scroll-margin-top:64px}.sec:first-child{margin-top:0}
+.sec-t{font-size:16px;font-weight:700;margin-bottom:11px;padding-left:11px;border-left:4px solid #FF6B35}
+.card{background:#fff;border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.ct{font-size:14px;font-weight:700;margin-bottom:9px}
+.dim-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dim-item{background:#FFF7F2;border-radius:10px;padding:10px 6px;text-align:center}
+.dim-item .icon{font-size:20px}.dim-item .name{font-size:12px;font-weight:600;margin-top:3px}.dim-item .desc{font-size:10px;color:#888}
+.ds-row{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #EEE}.ds-row .val{font-weight:700;color:#FF6B35}
+.radar-wrap{display:flex;justify-content:center;padding:4px 0}
+.tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.tag-green{background:#E8F8F0;color:#27AE60}.tag-blue{background:#EBF5FB;color:#3498DB}.tag-orange{background:#FEF3E2;color:#F39C12}
+.btn{background:#FF6B35;color:#fff;text-align:center;padding:14px;border-radius:22px;font-size:14px;font-weight:600;margin-top:10px;cursor:pointer}
+.fs{margin-bottom:9px}.fs .st{font-size:12px;font-weight:700;color:#FF6B35;margin-bottom:3px}.fs .sb2{font-size:13px;line-height:1.5}
+.lst{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #EEE}.lst:last-child{border-bottom:none}
+.lst-name{font-size:13px;font-weight:600}.lst-meta{font-size:11px;color:#888;margin-top:2px}
+.tab-bar{position:fixed;bottom:0;left:0;right:0;height:62px;background:#fff;border-top:1px solid #EEE;display:flex;z-index:10}
+.tab-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#888;text-decoration:none;gap:3px}
+.tab-icon{font-size:20px}.tab-label{font-size:10px}
+</style>
+</head>
+<body>
+<div class="hd"><a href="index.html">‹</a><div><div class="t">学员版</div><div class="s">朵朵 · 璨星班</div></div></div>
+<div class="content">
+
+<div class="sec" id="ceping"><div class="sec-t">AI声乐测评</div>
+<div class="card"><div class="ct">五维科学评估</div>
+<div class="dim-grid">
+<div class="dim-item"><div class="icon">🎵</div><div class="name">音准</div><div class="desc">跟唱识别偏差</div></div>
+<div class="dim-item"><div class="icon">🥁</div><div class="name">节奏</div><div class="desc">测稳定性</div></div>
+<div class="dim-item"><div class="icon">🎶</div><div class="name">乐感</div><div class="desc">情绪感知</div></div>
+<div class="dim-item"><div class="icon">📈</div><div class="name">音域</div><div class="desc">上下行测音域</div></div>
+</div>
+<div class="dim-item" style="margin-top:8px"><div class="icon">🎤</div><div class="name">音色</div><div class="desc">明亮/甜美/圆润/穿透/年龄感</div></div>
+</div>
+<div class="card"><div class="ct">测评流程</div><div style="font-size:13px;line-height:2">1. 填联系方式留资<br>2. 五维测评约15分钟<br>3. 秒出学情报告<br>4. 顾问联系解读</div></div>
+</div>
+
+<div class="sec" id="baogao"><div class="sec-t">学情报告</div>
+<div class="card"><div class="ct">五维雷达图</div>
+<div class="radar-wrap"><svg width="220" height="220" viewBox="0 0 200 200">
+<polygon points="100,20 176.1,75.3 147,164.7 53,164.7 23.9,75.3" fill="none" stroke="#E0E0E0"/>
+<polygon points="100,47 150.4,83.6 131.2,142.9 68.8,142.9 49.6,83.6" fill="none" stroke="#E0E0E0"/>
+<line x1="100" y1="100" x2="100" y2="20" stroke="#E0E0E0"/><line x1="100" y1="100" x2="176.1" y2="75.3" stroke="#E0E0E0"/><line x1="100" y1="100" x2="147" y2="164.7" stroke="#E0E0E0"/><line x1="100" y1="100" x2="53" y2="164.7" stroke="#E0E0E0"/><line x1="100" y1="100" x2="23.9" y2="75.3" stroke="#E0E0E0"/>
+<polygon points="100,32 159.3,80.7 142.3,158.2 67.1,145.3 37.6,79.7" fill="rgba(255,107,53,0.25)" stroke="#FF6B35" stroke-width="2"/>
+<circle cx="100" cy="32" r="3" fill="#FF6B35"/><circle cx="159.3" cy="80.7" r="3" fill="#FF6B35"/><circle cx="142.3" cy="158.2" r="3" fill="#FF6B35"/><circle cx="67.1" cy="145.3" r="3" fill="#FF6B35"/><circle cx="37.6" cy="79.7" r="3" fill="#FF6B35"/>
+<text x="100" y="12" text-anchor="middle" font-size="11" font-weight="600">音准</text><text x="186" y="74" text-anchor="middle" font-size="11" font-weight="600">节奏</text><text x="152" y="181" text-anchor="middle" font-size="11" font-weight="600">乐感</text><text x="48" y="181" text-anchor="middle" font-size="11" font-weight="600">音域</text><text x="14" y="74" text-anchor="middle" font-size="11" font-weight="600">音色</text>
+</svg></div>
+<div class="ds-row"><span>音准</span><span class="val">85</span></div>
+<div class="ds-row"><span>节奏</span><span class="val">78</span></div>
+<div class="ds-row"><span>乐感</span><span class="val">90</span></div>
+<div class="ds-row"><span>音域</span><span class="val">70</span></div>
+<div class="ds-row"><span>音色</span><span class="val">82</span></div>
+</div>
+<div class="card"><div class="ct">推荐方案</div><div style="font-size:13px;line-height:2"><span class="tag tag-green">璨星班</span> 推荐班型（总分81）<br><span class="tag tag-orange">快乐阳光课程</span><br>短期：3个月提升音域<br>中期：1年参加考级</div></div>
+</div>
+
+<div class="sec" id="fankui"><div class="sec-t">课后反馈</div>
+<div class="card">
+<div class="fs"><div class="st">【本周内容】</div><div class="sb2">练了《虫儿飞》主歌，重点抠音准和换气。</div></div>
+<div class="fs"><div class="st">【掌握情况】</div><div class="sb2">前两句音准进步明显，副歌高音区还有点挤，下周继续。</div></div>
+<div class="fs"><div class="st">【练习建议】</div><div class="sb2">每天跟唱15分钟，重点练副歌那句，先打拍子再唱。</div></div>
+<div class="fs"><div class="st">【下周预习】</div><div class="sb2">下周学副歌，先听几遍原曲找感觉。</div></div>
+</div>
+<div class="card"><div class="ct">课堂成果</div><div style="font-size:13px;color:#888;line-height:1.9">🎬 课堂视频1段<br>📸 课堂照片3张</div></div>
+</div>
+
+<div class="sec" id="fengcai"><div class="sec-t">学员风采</div>
+<div class="card"><div class="ct">本期高光</div>
+<div class="lst"><div><div class="lst-name">🎤 独唱《虫儿飞》</div><div class="lst-meta">2026夏季汇演</div></div><span class="tag tag-green">优秀</span></div>
+<div class="lst"><div><div class="lst-name">🏆 快乐阳光南通赛区</div><div class="lst-meta">2026-06 · 银奖</div></div><span class="tag tag-orange">银奖</span></div>
+<div class="lst"><div><div class="lst-name">💿 个人单曲录制</div><div class="lst-meta">录音棚 · 7月</div></div><span class="tag tag-blue">作品</span></div>
+</div>
+<div class="card"><div class="ct">作品集</div><div style="font-size:13px;color:#888;line-height:2">🎵 翻唱作品 5 首<br>🎬 演出视频 3 段<br>📸 课堂相册 12 张</div>
+<div class="btn" style="background:#3498DB">生成分享海报</div></div>
+</div>
+
+</div>
+<div class="tab-bar">
+<a class="tab-item" href="#ceping"><div class="tab-icon">🎤</div><div class="tab-label">测评</div></a>
+<a class="tab-item" href="#baogao"><div class="tab-icon">📊</div><div class="tab-label">报告</div></a>
+<a class="tab-item" href="#fankui"><div class="tab-icon">💬</div><div class="tab-label">反馈</div></a>
+<a class="tab-item" href="#fengcai"><div class="tab-icon">🌟</div><div class="tab-label">风采</div></a>
+</div>
+</body>
+</html>
