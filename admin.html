@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>教务版 · 星河</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#F5F6F8;color:#1A1A2E;padding-bottom:72px;-webkit-tap-highlight-color:transparent}
+.hd{color:#fff;padding:14px 16px;background:linear-gradient(135deg,#2980B9,#3498DB);position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:12px}
+.hd a{color:#fff;text-decoration:none;font-size:22px;line-height:1}
+.hd .t{font-size:18px;font-weight:700}.hd .s{font-size:11px;opacity:.85;margin-top:2px}
+.content{padding:14px}
+.sec{margin-top:22px;scroll-margin-top:64px}.sec:first-child{margin-top:0}
+.sec-t{font-size:16px;font-weight:700;margin-bottom:11px;padding-left:11px;border-left:4px solid #3498DB}
+.card{background:#fff;border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.ct{font-size:14px;font-weight:700;margin-bottom:9px}
+.lst{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #EEE}.lst:last-child{border-bottom:none}
+.lst-name{font-size:13px;font-weight:600}.lst-meta{font-size:11px;color:#888;margin-top:2px}
+.tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.tag-green{background:#E8F8F0;color:#27AE60}.tag-blue{background:#EBF5FB;color:#3498DB}.tag-orange{background:#FEF3E2;color:#F39C12}.tag-red{background:#FDECEA;color:#E74C3C}.tag-yellow{background:#FFF9E6;color:#B7950B}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{background:#F8F9FB;border-radius:10px;padding:12px;text-align:center}
+.stat .num{font-size:22px;font-weight:700;color:#3498DB}.stat .lb{font-size:11px;color:#888;margin-top:2px}
+.tab-bar{position:fixed;bottom:0;left:0;right:0;height:62px;background:#fff;border-top:1px solid #EEE;display:flex;z-index:10}
+.tab-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#888;text-decoration:none;gap:3px}
+.tab-icon{font-size:20px}.tab-label{font-size:10px}
+</style>
+</head>
+<body>
+<div class="hd"><a href="index.html">‹</a><div><div class="t">教务版</div><div class="s">今日12节课 · 312名学员</div></div></div>
+<div class="content">
+
+<div class="sec" id="paike"><div class="sec-t">排课管理</div>
+<div class="card"><div class="ct">今日课表</div>
+<div class="lst"><div><div class="lst-name">09:00 朵朵 1对1</div><div class="lst-meta">1号教室 · 李老师 · 璨星</div></div><span class="tag tag-green">已排</span></div>
+<div class="lst"><div><div class="lst-name">10:30 萌星班 1对6</div><div class="lst-meta">2号教室 · 王老师</div></div><span class="tag tag-green">已排</span></div>
+<div class="lst"><div><div class="lst-name">14:00 阳阳 1对2</div><div class="lst-meta">1号教室 · 李老师</div></div><span class="tag tag-orange">待确认</span></div>
+<div class="lst"><div><div class="lst-name">16:00 晨星班 1对4</div><div class="lst-meta">2号教室 · 张老师</div></div><span class="tag tag-green">已排</span></div>
+</div>
+<div class="card"><div class="ct">本周排课</div><div class="stat-grid"><div class="stat"><div class="num">68</div><div class="lb">本周总课时</div></div><div class="stat"><div class="num">4</div><div class="lb">待确认</div></div></div></div>
+</div>
+
+<div class="sec" id="kaoqin"><div class="sec-t">考勤打卡</div>
+<div class="card"><div class="ct">今日考勤（8/12）</div>
+<div class="lst"><div><div class="lst-name">朵朵</div><div class="lst-meta">09:00 · 已签到</div></div><span class="tag tag-green">到</span></div>
+<div class="lst"><div><div class="lst-name">阳阳</div><div class="lst-meta">10:30 · 请假</div></div><span class="tag tag-orange">请假</span></div>
+<div class="lst"><div><div class="lst-name">果果</div><div class="lst-meta">14:00 · 已签到</div></div><span class="tag tag-green">到</span></div>
+<div class="lst"><div><div class="lst-name">小宇</div><div class="lst-meta">14:00 · 未到</div></div><span class="tag tag-red">缺勤</span></div>
+</div>
+<div class="card"><div class="ct">本周出勤率</div><div class="stat-grid"><div class="stat"><div class="num">92%</div><div class="lb">出勤率</div></div><div class="stat"><div class="num">3</div><div class="lb">连续缺勤预警</div></div></div></div>
+</div>
+
+<div class="sec" id="xiaoke"><div class="sec-t">消课记录</div>
+<div class="card"><div class="ct">今日消课</div>
+<div class="lst"><div><div class="lst-name">朵朵 1对1</div><div class="lst-meta">消1节 · 余2节 · ¥200</div></div><span class="tag tag-blue">已消</span></div>
+<div class="lst"><div><div class="lst-name">萌星班 6人</div><div class="lst-meta">各消1节 · 请假2人按1对4</div></div><span class="tag tag-blue">已消</span></div>
+<div class="lst"><div><div class="lst-name">果果 1对2</div><div class="lst-meta">消1节 · 余7节 · ¥150</div></div><span class="tag tag-blue">已消</span></div>
+</div>
+<div class="card"><div class="ct">本月消课</div><div class="stat-grid"><div class="stat"><div class="num">286</div><div class="lb">本月消课节</div></div><div class="stat"><div class="num">¥57k</div><div class="lb">消课收入</div></div></div></div>
+</div>
+
+<div class="sec" id="dangan"><div class="sec-t">学员档案</div>
+<div class="card"><div class="ct">沉默学员预警</div>
+<div class="lst"><div><div class="lst-name">欣欣</div><div class="lst-meta">沉默65天 · 剩余12节</div></div><span class="tag tag-red">沉默</span></div>
+<div class="lst"><div><div class="lst-name">乐乐</div><div class="lst-meta">沉默62天 · 剩余8节</div></div><span class="tag tag-red">沉默</span></div>
+</div>
+<div class="card"><div class="ct">档案管理</div><div style="font-size:13px;line-height:2">🔍 搜索学员<br>📁 按班型/层级筛选<br>📊 课时余额盘点<br>⚠️ 沉默学员核查（防课时挪用）</div></div>
+</div>
+
+<div class="sec" id="xiaoshou"><div class="sec-t">销售跟进</div>
+<div class="card"><div class="ct">续费跟进线索</div>
+<div class="lst"><div><div class="lst-name">朵朵</div><div class="lst-meta">剩余2节 · 紧急</div></div><span class="tag tag-red">紧急</span></div>
+<div class="lst"><div><div class="lst-name">阳阳</div><div class="lst-meta">剩余4节 · 高</div></div><span class="tag tag-orange">高</span></div>
+<div class="lst"><div><div class="lst-name">果果</div><div class="lst-meta">剩余7节 · 中</div></div><span class="tag tag-yellow">中</span></div>
+</div>
+<div class="card"><div class="ct">新签线索</div>
+<div class="lst"><div><div class="lst-name">小宇</div><div class="lst-meta">测评完成 · 待约体验</div></div><span class="tag tag-blue">待跟进</span></div>
+<div class="lst"><div><div class="lst-name">乐乐</div><div class="lst-meta">体验课已上 · 待转化</div></div><span class="tag tag-orange">高</span></div>
+</div>
+<div class="card"><div class="ct">本月业绩</div><div class="stat-grid"><div class="stat"><div class="num">28</div><div class="lb">新签</div></div><div class="stat"><div class="num">45</div><div class="lb">续费</div></div></div></div>
+</div>
+
+</div>
+<div class="tab-bar">
+<a class="tab-item" href="#paike"><div class="tab-icon">📅</div><div class="tab-label">排课</div></a>
+<a class="tab-item" href="#kaoqin"><div class="tab-icon">✓</div><div class="tab-label">考勤</div></a>
+<a class="tab-item" href="#xiaoke"><div class="tab-icon">💳</div><div class="tab-label">消课</div></a>
+<a class="tab-item" href="#dangan"><div class="tab-icon">📁</div><div class="tab-label">档案</div></a>
+<a class="tab-item" href="#xiaoshou"><div class="tab-icon">💰</div><div class="tab-label">销售</div></a>
+</div>
+</body>
+</html>
