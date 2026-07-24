@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>教师版 · 星河</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#F5F6F8;color:#1A1A2E;padding-bottom:72px;-webkit-tap-highlight-color:transparent}
+.hd{color:#fff;padding:14px 16px;background:linear-gradient(135deg,#7d3c98,#9B59B6);position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:12px}
+.hd a{color:#fff;text-decoration:none;font-size:22px;line-height:1}
+.hd .t{font-size:18px;font-weight:700}.hd .s{font-size:11px;opacity:.85;margin-top:2px}
+.content{padding:14px}
+.sec{margin-top:22px;scroll-margin-top:64px}
+.sec:first-child{margin-top:0}
+.sec-t{font-size:16px;font-weight:700;margin-bottom:11px;padding-left:11px;border-left:4px solid #9B59B6}
+.card{background:#fff;border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.ct{font-size:14px;font-weight:700;margin-bottom:9px}
+.lst{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #EEE}
+.lst:last-child{border-bottom:none}
+.lst-name{font-size:13px;font-weight:600}.lst-meta{font-size:11px;color:#888;margin-top:2px}
+.tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.tag-green{background:#E8F8F0;color:#27AE60}.tag-blue{background:#EBF5FB;color:#3498DB}.tag-orange{background:#FEF3E2;color:#F39C12}
+.btn{background:#9B59B6;color:#fff;text-align:center;padding:14px;border-radius:22px;font-size:14px;font-weight:600;margin-top:10px;cursor:pointer}
+.fb{font-size:13px;line-height:1.7}.fb b{color:#9B59B6}
+.tab-bar{position:fixed;bottom:0;left:0;right:0;height:62px;background:#fff;border-top:1px solid #EEE;display:flex;z-index:10;padding-bottom:env(safe-area-inset-bottom,0)}
+.tab-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#888;text-decoration:none;gap:3px}
+.tab-icon{font-size:20px}.tab-label{font-size:10px}
+</style>
+</head>
+<body>
+<div class="hd"><a href="index.html">‹</a><div><div class="t">教师版</div><div class="s">李老师 · 今日4节</div></div></div>
+<div class="content">
+
+<div class="sec" id="kebiao"><div class="sec-t">我的课表</div>
+<div class="card"><div class="ct">今日课表</div>
+<div class="lst"><div><div class="lst-name">09:00 朵朵 1对1</div><div class="lst-meta">璨星 · 《虫儿飞》副歌</div></div><span class="tag tag-green">准备</span></div>
+<div class="lst"><div><div class="lst-name">10:30 阳阳 1对2</div><div class="lst-meta">晨星 · 音域训练</div></div><span class="tag tag-green">准备</span></div>
+<div class="lst"><div><div class="lst-name">14:00 果果 1对1</div><div class="lst-meta">趣星 · 节奏入门</div></div><span class="tag tag-green">准备</span></div>
+<div class="lst"><div><div class="lst-name">16:00 晨星班 1对4</div><div class="lst-meta">快乐阳光曲目</div></div><span class="tag tag-green">准备</span></div>
+</div></div>
+
+<div class="sec" id="xueyuan"><div class="sec-t">我的学员</div>
+<div class="card"><div class="ct">学员列表（32名）</div>
+<div class="lst"><div><div class="lst-name">朵朵</div><div class="lst-meta">璨星 · 余2节 · 进步快</div></div><span class="tag tag-green">优</span></div>
+<div class="lst"><div><div class="lst-name">阳阳</div><div class="lst-meta">晨星 · 余4节 · 待考级</div></div><span class="tag tag-blue">良</span></div>
+<div class="lst"><div><div class="lst-name">果果</div><div class="lst-meta">趣星 · 余7节</div></div><span class="tag tag-blue">良</span></div>
+</div>
+<div class="card"><div class="ct">待录学情</div><div style="font-size:13px;color:#888">3名学员本周学情未录入</div><div class="btn">去录入</div></div>
+</div>
+
+<div class="sec" id="fankui"><div class="sec-t">发课后反馈</div>
+<div class="card"><div class="ct">AI辅助生成</div>
+<div style="font-size:13px;margin-bottom:8px">学员：朵朵 · 今日练《虫儿飞》主歌</div>
+<div class="btn">AI生成反馈草稿</div></div>
+<div class="card"><div class="ct">生成结果（可编辑）</div>
+<div class="fb"><b>本周内容：</b>练了《虫儿飞》主歌，重点抠音准和换气。<br><b>掌握情况：</b>前两句音准进步明显，副歌高音区还有点挤。<br><b>练习建议：</b>每天跟唱15分钟，重点练副歌那句。</div>
+<div class="btn">发送给家长</div></div>
+</div>
+
+<div class="sec" id="ziyuan"><div class="sec-t">教学资源</div>
+<div class="card"><div class="ct">曲库</div>
+<div class="lst"><div><div class="lst-name">快乐阳光教材 2026</div><div class="lst-meta">200+首 · 按难度分</div></div><span class="tag tag-green">可用</span></div>
+<div class="lst"><div><div class="lst-name">流行歌曲库</div><div class="lst-meta">140首 · 每月+10</div></div><span class="tag tag-green">可用</span></div>
+<div class="lst"><div><div class="lst-name">艺考曲库</div><div class="lst-meta">初三/高二</div></div><span class="tag tag-blue">待更新</span></div>
+</div>
+<div class="card"><div class="ct">教学工具</div>
+<div style="font-size:13px;line-height:2">🎵 符宝音基课件（萌星/趣星）<br>🎤 符宝声乐课件（动态乐谱）<br>📋 考级曲目库（江苏音协）</div>
+</div></div>
+
+</div>
+<div class="tab-bar">
+<a class="tab-item" href="#kebiao"><div class="tab-icon">📋</div><div class="tab-label">课表</div></a>
+<a class="tab-item" href="#xueyuan"><div class="tab-icon">👥</div><div class="tab-label">学员</div></a>
+<a class="tab-item" href="#fankui"><div class="tab-icon">✏️</div><div class="tab-label">反馈</div></a>
+<a class="tab-item" href="#ziyuan"><div class="tab-icon">📚</div><div class="tab-label">资源</div></a>
+</div>
+</body>
+</html>
