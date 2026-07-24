@@ -2,278 +2,232 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>星河AI教学运营智能体 · 界面预览</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>星河AI教学运营智能体 · 可交互预览</title>
 <style>
 :root {
-  --primary: #FF6B35;
-  --secondary: #1A1A2E;
-  --accent: #FFD23F;
-  --bg: #F5F6F8;
-  --card: #FFFFFF;
-  --text: #1A1A2E;
-  --text-light: #888;
-  --border: #EEEEEE;
-  --danger: #E74C3C;
-  --warning: #F39C12;
-  --success: #27AE60;
+  --primary: #FF6B35; --secondary: #1A1A2E; --accent: #FFD23F;
+  --bg: #F5F6F8; --card: #FFFFFF; --text: #1A1A2E; --text-light: #888;
+  --border: #EEEEEE; --danger: #E74C3C; --warning: #F39C12; --success: #27AE60;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-@page { size: A4; margin: 0; }
-body { font-family: "Microsoft YaHei", -apple-system, sans-serif; background: #D8D8D8; }
+body { font-family: "Microsoft YaHei", -apple-system, sans-serif; background: #1A1A2E; display:flex; justify-content:center; align-items:flex-start; min-height:100vh; padding: 20px 0; }
 .phone {
-  width: 390px; height: 800px; margin: 0 auto;
-  background: var(--bg); border-radius: 36px; overflow: hidden;
-  position: relative; box-shadow: 0 0 0 10px #222, 0 0 0 12px #444;
-  page-break-after: always;
+  width: 375px; height: 812px; background: var(--bg); border-radius: 44px;
+  overflow: hidden; position: relative;
+  box-shadow: 0 0 0 11px #111, 0 0 0 13px #2a2a2a, 0 30px 60px rgba(0,0,0,0.5);
 }
-.phone:last-child { page-break-after: auto; }
-.statusbar { height: 32px; background: var(--secondary); color: white; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; font-size: 11px; }
-.header { background: linear-gradient(135deg, #FF6B35, #FF8C5A); color: white; padding: 14px 20px 18px; }
+.notch { position:absolute; top:0; left:50%; transform:translateX(-50%); width:150px; height:28px; background:#111; border-radius:0 0 18px 18px; z-index:100; }
+.statusbar { height:44px; display:flex; align-items:center; justify-content:space-between; padding:0 24px 0 28px; font-size:13px; font-weight:600; color:var(--text); }
+.statusbar.dark { color:#fff; background: var(--secondary); }
+.screen { position:absolute; top:44px; left:0; right:0; bottom:70px; overflow-y:auto; display:none; background:var(--bg); }
+.screen.active { display:block; }
+.screen::-webkit-scrollbar { display:none; }
+.header { background: linear-gradient(135deg,#FF6B35,#FF8C5A); color:#fff; padding:14px 20px 18px; }
 .header.dark { background: var(--secondary); }
-.header h1 { font-size: 18px; font-weight: 700; }
-.header .sub { font-size: 11px; opacity: 0.85; margin-top: 3px; }
-.content { padding: 14px; height: calc(800px - 32px); overflow: hidden; }
-.card { background: var(--card); border-radius: 12px; padding: 13px; margin-bottom: 11px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-.card-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
-.dim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.dim-item { background: #FFF7F2; border-radius: 9px; padding: 10px 6px; text-align: center; }
-.dim-item .icon { font-size: 20px; }
-.dim-item .name { font-size: 12px; font-weight: 600; margin-top: 3px; color: var(--text); }
-.dim-item .desc { font-size: 10px; color: var(--text-light); margin-top: 2px; }
-.btn { background: var(--primary); color: white; text-align: center; padding: 13px; border-radius: 22px; font-size: 14px; font-weight: 600; margin-top: 6px; }
-.radar-wrap { display: flex; justify-content: center; padding: 4px 0; }
-.dim-score { display: flex; justify-content: space-between; font-size: 12px; padding: 3px 0; border-bottom: 1px solid var(--border); }
-.dim-score .val { font-weight: 700; color: var(--primary); }
-.tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
-.tag-red { background: #FDECEA; color: var(--danger); }
-.tag-orange { background: #FEF3E2; color: var(--warning); }
-.tag-green { background: #E8F8F0; color: var(--success); }
-.lead-card { border-left: 4px solid var(--primary); }
-.lead-card.urgent { border-left-color: var(--danger); }
-.lead-card.high { border-left-color: var(--warning); }
-.lead-card.mid { border-left-color: var(--accent); }
-.alert-card { border-left: 4px solid; }
-.alert-card.red { border-left-color: var(--danger); background: #FDF2F1; }
-.alert-card.orange { border-left-color: var(--warning); background: #FEF6E8; }
-.fs { margin-bottom: 9px; }
-.fs .st { font-size: 12px; font-weight: 700; color: var(--primary); margin-bottom: 3px; }
-.fs .sb { font-size: 12px; color: var(--text); line-height: 1.5; }
-.brand-mark { text-align: center; font-size: 9px; color: var(--text-light); padding: 6px; }
-.page-label { text-align: center; font-size: 13px; color: #555; font-weight: 600; padding: 8px 0 4px; }
+.header h1 { font-size:19px; font-weight:700; }
+.header .sub { font-size:11px; opacity:.85; margin-top:3px; }
+.content { padding:14px; }
+.card { background:#fff; border-radius:14px; padding:14px; margin-bottom:12px; box-shadow:0 2px 10px rgba(0,0,0,.05); }
+.card-title { font-size:14px; font-weight:700; color:var(--text); margin-bottom:9px; }
+.dim-grid { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
+.dim-item { background:#FFF7F2; border-radius:10px; padding:11px 6px; text-align:center; }
+.dim-item .icon { font-size:22px; }
+.dim-item .name { font-size:13px; font-weight:600; margin-top:3px; }
+.dim-item .desc { font-size:10px; color:var(--text-light); margin-top:2px; }
+.btn { background:var(--primary); color:#fff; text-align:center; padding:14px; border-radius:24px; font-size:15px; font-weight:600; margin-top:8px; cursor:pointer; transition:.2s; }
+.btn:active { transform:scale(.97); }
+.btn.done { background:var(--success); }
+.radar-wrap { display:flex; justify-content:center; padding:6px 0; }
+.dim-score { display:flex; justify-content:space-between; font-size:12px; padding:4px 0; border-bottom:1px solid var(--border); }
+.dim-score .val { font-weight:700; color:var(--primary); }
+.tag { display:inline-block; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600; }
+.tag-red { background:#FDECEA; color:var(--danger); }
+.tag-orange { background:#FEF3E2; color:var(--warning); }
+.tag-yellow { background:#FFF9E6; color:#B7950B; }
+.tag-green { background:#E8F8F0; color:var(--success); }
+.lead-card { border-left:4px solid var(--primary); }
+.lead-card.urgent { border-left-color:var(--danger); }
+.lead-card.high { border-left-color:var(--warning); }
+.lead-card.mid { border-left-color:var(--accent); }
+.alert-card { border-left:4px solid; }
+.alert-card.red { border-left-color:var(--danger); background:#FDF2F1; }
+.alert-card.orange { border-left-color:var(--warning); background:#FEF6E8; }
+.fs { margin-bottom:10px; }
+.fs .st { font-size:12px; font-weight:700; color:var(--primary); margin-bottom:3px; }
+.fs .sb { font-size:13px; color:var(--text); line-height:1.5; }
+.brand-mark { text-align:center; font-size:10px; color:var(--text-light); padding:8px; }
+.row { display:flex; justify-content:space-between; align-items:center; margin-bottom:5px; }
+.lead-name { font-size:14px; font-weight:700; }
+.lead-meta { font-size:11px; color:var(--text-light); margin-bottom:6px; }
+.talk { font-size:12px; color:var(--text); line-height:1.5; background:#FAFAFA; padding:8px; border-radius:8px; margin-top:6px; display:none; }
+.talk.open { display:block; }
+.mini-btn { font-size:11px; color:var(--primary); border:1px solid var(--primary); padding:3px 10px; border-radius:10px; display:inline-block; cursor:pointer; }
+.tab-bar { position:absolute; bottom:0; left:0; right:0; height:70px; background:#fff; border-top:1px solid var(--border); display:flex; z-index:90; }
+.tab-item { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; cursor:pointer; color:var(--text-light); }
+.tab-item.active { color:var(--primary); }
+.tab-icon { font-size:21px; line-height:1; }
+.tab-label { font-size:10px; font-weight:500; }
+.toast { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:rgba(0,0,0,.8); color:#fff; padding:14px 22px; border-radius:12px; font-size:13px; z-index:200; display:none; }
+.toast.show { display:block; }
 </style>
 </head>
 <body>
-
-<!-- 界面1：入学测评入口 -->
 <div class="phone">
-  <div class="statusbar"><span>9:41</span><span>● ● ●</span></div>
-  <div class="header">
-    <h1>AI 声乐测评</h1>
-    <div class="sub">七彩和弦童声学院 · 免费 · 15分钟出报告</div>
-  </div>
-  <div class="content">
-    <div class="card">
-      <div class="card-title">五维科学评估</div>
-      <div class="dim-grid">
-        <div class="dim-item"><div class="icon">🎵</div><div class="name">音准</div><div class="desc">跟唱识别偏差</div></div>
-        <div class="dim-item"><div class="icon">🥁</div><div class="name">节奏</div><div class="desc">跟打测稳定性</div></div>
-        <div class="dim-item"><div class="icon">🎶</div><div class="name">乐感</div><div class="desc">情绪走向感知</div></div>
-        <div class="dim-item"><div class="icon">📈</div><div class="name">音域</div><div class="desc">上下行测音域</div></div>
-      </div>
-      <div class="dim-item" style="margin-top:8px;"><div class="icon">🎤</div><div class="name">音色</div><div class="desc">明亮/甜美/圆润/穿透/年龄感</div></div>
-    </div>
-    <div class="card">
-      <div class="card-title">测评流程</div>
-      <div style="font-size:12px;color:var(--text);line-height:1.9;">
-        1. 填写联系方式（留资）<br>
-        2. 五维测评（约15分钟）<br>
-        3. 秒出学情报告<br>
-        4. 课程顾问联系解读
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">分层体系</div>
-      <div style="font-size:11px;color:var(--text-light);line-height:1.7;">
-        萌星 → 趣星 → 晨星 → 璨星 → 星光 → 星辉 → 星耀<br>
-        音域上限：d2 / e2 / f2（按年龄段）
-      </div>
-    </div>
-    <div class="btn">开始测评</div>
-    <div class="brand-mark">七彩和弦 · 星河AI教学运营智能体</div>
-  </div>
-</div>
+  <div class="notch"></div>
+  <div class="statusbar" id="statusbar"><span>9:41</span><span>● ● ●</span></div>
 
-<!-- 界面2：学情报告 -->
-<div class="phone">
-  <div class="statusbar"><span>9:41</span><span>● ● ●</span></div>
-  <div class="header">
-    <h1>学情报告</h1>
-    <div class="sub">学员：朵朵 · 8岁 · 2026-07-24 · 来源：公众号扫码</div>
+  <div class="screen active" id="s1">
+    <div class="header"><h1>AI 声乐测评</h1><div class="sub">七彩和弦童声学院 · 免费 · 15分钟</div></div>
+    <div class="content">
+      <div class="card"><div class="card-title">五维科学评估</div>
+        <div class="dim-grid">
+          <div class="dim-item"><div class="icon">🎵</div><div class="name">音准</div><div class="desc">跟唱识别偏差</div></div>
+          <div class="dim-item"><div class="icon">🥁</div><div class="name">节奏</div><div class="desc">跟打测稳定性</div></div>
+          <div class="dim-item"><div class="icon">🎶</div><div class="name">乐感</div><div class="desc">情绪走向感知</div></div>
+          <div class="dim-item"><div class="icon">📈</div><div class="name">音域</div><div class="desc">上下行测音域</div></div>
+        </div>
+        <div class="dim-item" style="margin-top:9px;"><div class="icon">🎤</div><div class="name">音色</div><div class="desc">明亮/甜美/圆润/穿透/年龄感</div></div>
+      </div>
+      <div class="card"><div class="card-title">测评流程</div>
+        <div style="font-size:13px;line-height:2;">1. 填写联系方式（留资）<br>2. 五维测评（约15分钟）<br>3. 秒出学情报告<br>4. 课程顾问联系解读</div>
+      </div>
+      <div class="card"><div class="card-title">分层体系</div>
+        <div style="font-size:11px;color:var(--text-light);line-height:1.7;">萌星→趣星→晨星→璨星→星光→星辉→星耀<br>音域上限：d2 / e2 / f2</div>
+      </div>
+      <div class="btn" onclick="go('s2')">开始测评</div>
+      <div class="brand-mark">七彩和弦 · 星河AI教学运营智能体</div>
+    </div>
   </div>
-  <div class="content">
-    <div class="card">
-      <div class="card-title">五维雷达图</div>
-      <div class="radar-wrap">
-        <svg width="210" height="210" viewBox="0 0 200 200">
-          <polygon points="100,20 176.1,75.3 147,164.7 53,164.7 23.9,75.3" fill="none" stroke="#E0E0E0" stroke-width="1"/>
-          <polygon points="100,47 150.4,83.6 131.2,142.9 68.8,142.9 49.6,83.6" fill="none" stroke="#E0E0E0" stroke-width="1"/>
-          <polygon points="100,73 125.7,91.7 115.9,121.8 84.1,121.8 74.3,91.7" fill="none" stroke="#E0E0E0" stroke-width="1"/>
-          <line x1="100" y1="100" x2="100" y2="20" stroke="#E0E0E0"/>
-          <line x1="100" y1="100" x2="176.1" y2="75.3" stroke="#E0E0E0"/>
-          <line x1="100" y1="100" x2="147" y2="164.7" stroke="#E0E0E0"/>
-          <line x1="100" y1="100" x2="53" y2="164.7" stroke="#E0E0E0"/>
+
+  <div class="screen" id="s2">
+    <div class="header"><h1>学情报告</h1><div class="sub">学员：朵朵 · 8岁 · 2026-07-24 · 公众号扫码</div></div>
+    <div class="content">
+      <div class="card"><div class="card-title">五维雷达图</div>
+        <div class="radar-wrap"><svg width="220" height="220" viewBox="0 0 200 200">
+          <polygon points="100,20 176.1,75.3 147,164.7 53,164.7 23.9,75.3" fill="none" stroke="#E0E0E0"/>
+          <polygon points="100,47 150.4,83.6 131.2,142.9 68.8,142.9 49.6,83.6" fill="none" stroke="#E0E0E0"/>
+          <polygon points="100,73 125.7,91.7 115.9,121.8 84.1,121.8 74.3,91.7" fill="none" stroke="#E0E0E0"/>
+          <line x1="100" y1="100" x2="100" y2="20" stroke="#E0E0E0"/><line x1="100" y1="100" x2="176.1" y2="75.3" stroke="#E0E0E0"/>
+          <line x1="100" y1="100" x2="147" y2="164.7" stroke="#E0E0E0"/><line x1="100" y1="100" x2="53" y2="164.7" stroke="#E0E0E0"/>
           <line x1="100" y1="100" x2="23.9" y2="75.3" stroke="#E0E0E0"/>
           <polygon points="100,32 159.3,80.7 142.3,158.2 67.1,145.3 37.6,79.7" fill="rgba(255,107,53,0.25)" stroke="#FF6B35" stroke-width="2"/>
-          <circle cx="100" cy="32" r="3" fill="#FF6B35"/>
-          <circle cx="159.3" cy="80.7" r="3" fill="#FF6B35"/>
-          <circle cx="142.3" cy="158.2" r="3" fill="#FF6B35"/>
-          <circle cx="67.1" cy="145.3" r="3" fill="#FF6B35"/>
+          <circle cx="100" cy="32" r="3" fill="#FF6B35"/><circle cx="159.3" cy="80.7" r="3" fill="#FF6B35"/>
+          <circle cx="142.3" cy="158.2" r="3" fill="#FF6B35"/><circle cx="67.1" cy="145.3" r="3" fill="#FF6B35"/>
           <circle cx="37.6" cy="79.7" r="3" fill="#FF6B35"/>
           <text x="100" y="12" text-anchor="middle" font-size="11" fill="#1A1A2E" font-weight="600">音准</text>
           <text x="186" y="74" text-anchor="middle" font-size="11" fill="#1A1A2E" font-weight="600">节奏</text>
           <text x="152" y="181" text-anchor="middle" font-size="11" fill="#1A1A2E" font-weight="600">乐感</text>
           <text x="48" y="181" text-anchor="middle" font-size="11" fill="#1A1A2E" font-weight="600">音域</text>
           <text x="14" y="74" text-anchor="middle" font-size="11" fill="#1A1A2E" font-weight="600">音色</text>
-        </svg>
+        </svg></div>
+        <div class="dim-score"><span>音准</span><span class="val">85</span></div>
+        <div class="dim-score"><span>节奏</span><span class="val">78</span></div>
+        <div class="dim-score"><span>乐感</span><span class="val">90</span></div>
+        <div class="dim-score"><span>音域</span><span class="val">70</span></div>
+        <div class="dim-score"><span>音色</span><span class="val">82</span></div>
       </div>
-      <div class="dim-score"><span>音准</span><span class="val">85</span></div>
-      <div class="dim-score"><span>节奏</span><span class="val">78</span></div>
-      <div class="dim-score"><span>乐感</span><span class="val">90</span></div>
-      <div class="dim-score"><span>音域</span><span class="val">70</span></div>
-      <div class="dim-score"><span>音色</span><span class="val">82</span></div>
-    </div>
-    <div class="card">
-      <div class="card-title">文字解读 · 乐感</div>
-      <div style="font-size:12px;color:var(--text);line-height:1.5;">乐感灵敏，能准确捕捉音乐情绪变化，是很宝贵的音乐天赋。可多接触不同风格曲目，进一步拓宽感知。</div>
-    </div>
-    <div class="card">
-      <div class="card-title">推荐方案</div>
-      <div style="font-size:12px;line-height:1.9;">
-        <span class="tag tag-green">璨星班</span> 推荐班型（总分 81）<br><br>
-        <span class="tag tag-orange">快乐阳光课程</span> 推荐课程<br><br>
-        短期：3个月提升音域<br>
-        中期：1年参加考级
+      <div class="card"><div class="card-title">文字解读 · 乐感</div>
+        <div style="font-size:13px;line-height:1.5;">乐感灵敏，能准确捕捉音乐情绪变化，是很宝贵的音乐天赋。可多接触不同风格曲目，进一步拓宽感知。</div>
       </div>
+      <div class="card"><div class="card-title">推荐方案</div>
+        <div style="font-size:13px;line-height:2;"><span class="tag tag-green">璨星班</span> 推荐班型（总分81）<br><span class="tag tag-orange">快乐阳光课程</span> 推荐课程<br>短期：3个月提升音域<br>中期：1年参加考级</div>
+      </div>
+      <div class="btn" onclick="toast('已通知顾问李老师，将电话联系您解读报告')">联系顾问解读</div>
     </div>
-    <div class="btn">联系顾问解读</div>
   </div>
-</div>
 
-<!-- 界面3：续费线索（顾问端） -->
-<div class="phone">
-  <div class="statusbar"><span>9:41</span><span>● ● ●</span></div>
-  <div class="header dark">
-    <h1>续费线索</h1>
-    <div class="sub">顾问：李老师 · 今日 5 条待跟进</div>
-  </div>
-  <div class="content">
-    <div class="card lead-card urgent">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
-        <span style="font-size:13px;font-weight:700;">朵朵</span><span class="tag tag-red">紧急</span>
+  <div class="screen" id="s3">
+    <div class="header dark"><h1>续费线索</h1><div class="sub">顾问：李老师 · 今日5条待跟进</div></div>
+    <div class="content">
+      <div class="card lead-card urgent">
+        <div class="row"><span class="lead-name">朵朵</span><span class="tag tag-red">紧急</span></div>
+        <div class="lead-meta">剩余2节 · 到期5天 · 建议今天联系</div>
+        <span class="mini-btn" onclick="this.parentNode.querySelector('.talk').classList.toggle('open')">查看AI话术</span>
+        <div class="talk">朵朵这段时间音准进步明显，课时快到了，怕断档影响状态。约家长面谈谈下阶段安排，不在微信谈价格。</div>
       </div>
-      <div style="font-size:11px;color:var(--text-light);margin-bottom:5px;">剩余 2 节 · 到期 5 天 · 建议今天联系</div>
-      <div style="font-size:11px;color:var(--text);line-height:1.4;background:#FAFAFA;padding:7px;border-radius:6px;">AI话术：朵朵这段时间音准进步明显，课时快到了，怕断档影响状态，约家长面谈谈下阶段...</div>
-    </div>
-    <div class="card lead-card high">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
-        <span style="font-size:13px;font-weight:700;">阳阳</span><span class="tag tag-orange">高</span>
+      <div class="card lead-card high">
+        <div class="row"><span class="lead-name">阳阳</span><span class="tag tag-orange">高</span></div>
+        <div class="lead-meta">剩余4节 · 到期12天 · 2天内联系</div>
+        <span class="mini-btn" onclick="this.parentNode.querySelector('.talk').classList.toggle('open')">查看AI话术</span>
+        <div class="talk">阳阳下阶段对接考级，需要课时支撑。微信铺垫后约体验课面谈，话术按"进展回顾→价值强化→自然提议"三段。</div>
       </div>
-      <div style="font-size:11px;color:var(--text-light);margin-bottom:5px;">剩余 4 节 · 到期 12 天 · 2天内联系</div>
-      <div style="font-size:11px;color:var(--text);line-height:1.4;background:#FAFAFA;padding:7px;border-radius:6px;">AI话术：阳阳下阶段对接考级，需要课时支撑，微信铺垫后约体验...</div>
-    </div>
-    <div class="card lead-card mid">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
-        <span style="font-size:13px;font-weight:700;">果果</span><span class="tag" style="background:#FFF9E6;color:#B7950B;">中</span>
+      <div class="card lead-card mid">
+        <div class="row"><span class="lead-name">果果</span><span class="tag tag-yellow">中</span></div>
+        <div class="lead-meta">剩余7节 · 1周内联系</div>
+        <span class="mini-btn" onclick="this.parentNode.querySelector('.talk').classList.toggle('open')">查看AI话术</span>
+        <div class="talk">果果这阶段做学情总结，展示成长轨迹建立长期信任，预告续费节点，不急于这轮成单。</div>
       </div>
-      <div style="font-size:11px;color:var(--text-light);margin-bottom:5px;">剩余 7 节 · 1周内联系</div>
-      <div style="font-size:11px;color:var(--text);line-height:1.4;background:#FAFAFA;padding:7px;border-radius:6px;">AI话术：果果这阶段学情总结，展示成长轨迹，预告续费节点...</div>
-    </div>
-    <div class="card">
-      <div class="card-title">扩科线索</div>
-      <div style="font-size:11px;color:var(--text);line-height:1.6;">
-        <span class="tag tag-green">艺考意向</span> 小宇 · 璨星以上，有艺考意向未报艺考课
+      <div class="card"><div class="card-title">扩科线索</div>
+        <div style="font-size:13px;line-height:1.7;"><span class="tag tag-green">艺考意向</span> 小宇 · 璨星以上，有艺考意向未报艺考课</div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- 界面4：风险预警（校长端） -->
-<div class="phone">
-  <div class="statusbar"><span>9:41</span><span>● ● ●</span></div>
-  <div class="header dark">
-    <h1>风险预警</h1>
-    <div class="sub">校长端 · 今日 3 条预警</div>
-  </div>
-  <div class="content">
-    <div class="card alert-card red">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
-        <span style="font-size:13px;font-weight:700;color:var(--danger);">优惠预警 · 红色</span><span class="tag tag-red">4小时内回复</span>
+  <div class="screen" id="s4">
+    <div class="header dark"><h1>风险预警</h1><div class="sub">校长端 · 今日3条预警</div></div>
+    <div class="content">
+      <div class="card alert-card red">
+        <div class="row"><span style="font-size:14px;font-weight:700;color:var(--danger);">优惠预警 · 红色</span><span class="tag tag-red">4小时内</span></div>
+        <div style="font-size:12px;line-height:1.7;margin:6px 0;">顾问：李老师 / 学员：小宇<br>整单优惠18%（超15%阈值）</div>
+        <div class="btn" style="margin-top:4px;font-size:13px;padding:9px;" onclick="this.classList.add('done');this.innerText='已审批通过'">立即审批</div>
       </div>
-      <div style="font-size:11px;color:var(--text);line-height:1.6;">
-        顾问：李老师<br>学员：小宇<br>整单优惠 18%（超 15% 阈值）<br>需校长审批
+      <div class="card alert-card orange">
+        <div class="row"><span style="font-size:14px;font-weight:700;color:var(--warning);">沉默学员 · 橙色</span><span class="tag tag-orange">24小时内</span></div>
+        <div style="font-size:12px;line-height:1.7;margin:6px 0;">学员：欣欣（沉默65天，剩余12节）<br>异常：课时转出给新学员</div>
+        <div class="btn" style="margin-top:4px;font-size:13px;padding:9px;background:var(--warning);" onclick="this.classList.add('done');this.innerText='已派副校长核实'">派副校长核实</div>
       </div>
-    </div>
-    <div class="card alert-card orange">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
-        <span style="font-size:13px;font-weight:700;color:var(--warning);">沉默学员预警 · 橙色</span><span class="tag tag-orange">24小时内核实</span>
+      <div class="card alert-card orange">
+        <div class="row"><span style="font-size:14px;font-weight:700;color:var(--warning);">数据安全 · 橙色</span><span class="tag tag-orange">已记录</span></div>
+        <div style="font-size:12px;line-height:1.7;">顾问：王老师 / 导出60条含手机号<br>操作日志已留痕</div>
       </div>
-      <div style="font-size:11px;color:var(--text);line-height:1.6;">
-        学员：欣欣（沉默 65 天，剩余 12 节）<br>异常：课时转出给新学员<br>请行政副校长核实是否本人知情
-      </div>
-    </div>
-    <div class="card alert-card orange">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
-        <span style="font-size:13px;font-weight:700;color:var(--warning);">数据安全预警 · 橙色</span><span class="tag tag-orange">已记录</span>
-      </div>
-      <div style="font-size:11px;color:var(--text);line-height:1.6;">
-        顾问：王老师<br>导出学员数据 60 条（超 50 阈值）<br>含手机号字段<br>操作日志已留痕
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">本月预警统计</div>
-      <div style="font-size:11px;color:var(--text-light);line-height:1.7;">
-        优惠预警 8 次 · 沉默学员 3 次 · 数据导出 2 次<br>违规率下降 60%
+      <div class="card"><div class="card-title">本月预警统计</div>
+        <div style="font-size:12px;color:var(--text-light);line-height:1.7;">优惠8次 · 沉默3次 · 数据2次 · 违规率降60%</div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- 界面5：课后反馈（家长端） -->
-<div class="phone">
-  <div class="statusbar"><span>9:41</span><span>● ● ●</span></div>
-  <div class="header">
-    <h1>本周课后反馈</h1>
-    <div class="sub">朵朵 · 璨星班 · 2026-07-24</div>
-  </div>
-  <div class="content">
-    <div class="card">
-      <div class="fs">
-        <div class="st">【本周内容】</div>
-        <div class="sb">练了《虫儿飞》主歌部分，重点抠了音准和换气。</div>
+  <div class="screen" id="s5">
+    <div class="header"><h1>本周课后反馈</h1><div class="sub">朵朵 · 璨星班 · 2026-07-24</div></div>
+    <div class="content">
+      <div class="card">
+        <div class="fs"><div class="st">【本周内容】</div><div class="sb">练了《虫儿飞》主歌部分，重点抠了音准和换气。</div></div>
+        <div class="fs"><div class="st">【掌握情况】</div><div class="sb">前两句音准进步明显，副歌高音区还有点挤，下周继续。</div></div>
+        <div class="fs"><div class="st">【练习建议】</div><div class="sb">每天跟唱15分钟，重点练副歌那句，注意先打拍子再唱。</div></div>
+        <div class="fs"><div class="st">【下周预习】</div><div class="sb">下周学副歌，可以先让朵朵听几遍原曲找感觉。</div></div>
       </div>
-      <div class="fs">
-        <div class="st">【掌握情况】</div>
-        <div class="sb">前两句音准进步明显，副歌高音区还有点挤，下周继续。</div>
+      <div class="card"><div class="card-title">课堂成果</div>
+        <div style="font-size:13px;color:var(--text-light);line-height:1.9;">🎬 课堂视频1段<br>📸 课堂照片3张<br><span class="mini-btn" onclick="toast('课堂视频已打开（预览模拟）')">播放视频</span></div>
       </div>
-      <div class="fs">
-        <div class="st">【练习建议】</div>
-        <div class="sb">每天跟唱 15 分钟，重点练副歌那句，注意先打拍子再唱。</div>
-      </div>
-      <div class="fs">
-        <div class="st">【下周预习】</div>
-        <div class="sb">下周学副歌，可以先让朵朵听几遍原曲找感觉。</div>
-      </div>
+      <div class="btn" onclick="toast('回复已发送给李老师')">给老师回复</div>
+      <div class="brand-mark">七彩和弦 · 让孩子享受歌唱</div>
     </div>
-    <div class="card">
-      <div class="card-title">课堂成果</div>
-      <div style="font-size:12px;color:var(--text-light);line-height:1.7;">
-        🎬 课堂视频 1 段<br>📸 课堂照片 3 张<br>tap 查看大图
-      </div>
-    </div>
-    <div class="btn">给老师回复</div>
-    <div class="brand-mark">七彩和弦 · 让孩子享受歌唱</div>
   </div>
-</div>
 
+  <div class="tab-bar">
+    <div class="tab-item active" onclick="go('s1')"><div class="tab-icon">🎤</div><div class="tab-label">测评</div></div>
+    <div class="tab-item" onclick="go('s2')"><div class="tab-icon">📊</div><div class="tab-label">报告</div></div>
+    <div class="tab-item" onclick="go('s3')"><div class="tab-icon">🔔</div><div class="tab-label">线索</div></div>
+    <div class="tab-item" onclick="go('s4')"><div class="tab-icon">⚠️</div><div class="tab-label">预警</div></div>
+    <div class="tab-item" onclick="go('s5')"><div class="tab-icon">💬</div><div class="tab-label">反馈</div></div>
+  </div>
+  <div class="toast" id="toast"></div>
+</div>
+<script>
+function go(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab-item').forEach(t=>t.classList.remove('active'));
+  var tabs=['s1','s2','s3','s4','s5'];
+  document.querySelectorAll('.tab-item')[tabs.indexOf(id)].classList.add('active');
+  var dark = (id==='s3'||id==='s4');
+  document.getElementById('statusbar').className = dark?'statusbar dark':'statusbar';
+}
+function toast(msg){
+  var t=document.getElementById('toast');
+  t.innerText=msg; t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); },1800);
+}
+</script>
 </body>
 </html>
