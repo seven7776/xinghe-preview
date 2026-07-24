@@ -2,55 +2,43 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>星河AI教学运营智能体 · 多角色预览</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>星河AI教学运营智能体</title>
 <style>
 :root{--primary:#FF6B35;--secondary:#1A1A2E;--accent:#FFD23F;--bg:#F5F6F8;--card:#fff;--text:#1A1A2E;--tl:#888;--border:#EEE;--danger:#E74C3C;--warning:#F39C12;--success:#27AE60;--blue:#3498DB;--purple:#9B59B6}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#1A1A2E;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:0}
-.phone{width:375px;max-width:100vw;height:812px;height:min(812px,100dvh);max-height:100dvh;background:var(--bg);border-radius:44px;overflow:hidden;position:relative;box-shadow:0 0 0 11px #111,0 0 0 13px #2a2a2a,0 30px 60px rgba(0,0,0,.5)}
-.notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:150px;height:28px;background:#111;border-radius:0 0 18px 18px;z-index:100}
-.sb{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px 0 28px;font-size:13px;font-weight:600;color:var(--text)}
-.sb.dark{color:#fff;background:var(--secondary)}
-.screen{position:absolute;top:44px;left:0;right:0;bottom:70px;overflow-y:auto;display:none;background:var(--bg)}
-.screen.active{display:block}
-.screen::-webkit-scrollbar{display:none}
-.hd{color:#fff;padding:14px 16px 18px;display:flex;align-items:center;gap:10px}
+html,body{height:100%}
+body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#1A1A2E;-webkit-tap-highlight-color:transparent}
+.app{max-width:480px;margin:0 auto;background:var(--bg);min-height:100vh;position:relative}
+.sb{height:40px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;font-size:13px;font-weight:600;color:var(--text);background:#fff;border-bottom:1px solid var(--border)}
+.sb.dark{color:#fff;background:var(--secondary);border-bottom:none}
+.screen{display:none}.screen.active{display:block}
+.hd{color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px}
 .hd.orange{background:linear-gradient(135deg,#FF6B35,#FF8C5A)}
 .hd.dark{background:var(--secondary)}
 .hd.blue{background:linear-gradient(135deg,#2980B9,#3498DB)}
 .hd.purple{background:linear-gradient(135deg,#7d3c98,#9B59B6)}
 .hd.green{background:linear-gradient(135deg,#1e8449,#27AE60)}
-.back{font-size:20px;cursor:pointer;width:28px}
-.ht{flex:1}
-.ht h1{font-size:18px;font-weight:700}
-.ht .sub{font-size:11px;opacity:.85;margin-top:2px}
-.content{padding:14px}
+.back{font-size:22px;cursor:pointer;width:28px;line-height:1}
+.ht{flex:1}.ht h1{font-size:18px;font-weight:700}.ht .sub{font-size:11px;opacity:.85;margin-top:2px}
+.content{padding:14px 14px 76px}
 .card{background:#fff;border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
 .ct{font-size:14px;font-weight:700;margin-bottom:9px}
-.btn{background:var(--primary);color:#fff;text-align:center;padding:13px;border-radius:22px;font-size:14px;font-weight:600;margin-top:8px;cursor:pointer}
-.btn:active{transform:scale(.97)}
-.btn.done{background:var(--success)}
+.btn{background:var(--primary);color:#fff;text-align:center;padding:14px;border-radius:22px;font-size:15px;font-weight:600;margin-top:8px;cursor:pointer}
+.btn:active{transform:scale(.97)}.btn.done{background:var(--success)}
 .tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600}
-.tag-red{background:#FDECEA;color:var(--danger)}
-.tag-orange{background:#FEF3E2;color:var(--warning)}
-.tag-green{background:#E8F8F0;color:var(--success)}
-.tag-blue{background:#EBF5FB;color:var(--blue)}
-.row{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
-.brand{text-align:center;font-size:10px;color:var(--tl);padding:8px}
+.tag-red{background:#FDECEA;color:var(--danger)}.tag-orange{background:#FEF3E2;color:var(--warning)}.tag-green{background:#E8F8F0;color:var(--success)}.tag-blue{background:#EBF5FB;color:var(--blue)}.tag-yellow{background:#FFF9E6;color:#B7950B}
+.brand{text-align:center;font-size:10px;color:var(--tl);padding:10px}
 .role-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:6px}
-.role-card{border-radius:16px;padding:18px 14px;text-align:center;color:#fff;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.12)}
-.role-card .ic{font-size:34px}
-.role-card .nm{font-size:15px;font-weight:700;margin-top:6px}
-.role-card .ds{font-size:10px;opacity:.9;margin-top:3px;line-height:1.4}
+.role-card{border-radius:16px;padding:18px 14px;color:#fff;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.12);display:flex;align-items:center;gap:14px}
+.role-card .ic{font-size:30px}.role-card .tx{flex:1;text-align:left}
+.role-card .nm{font-size:16px;font-weight:700}.role-card .ds{font-size:11px;opacity:.9;margin-top:3px}
 .dim-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .dim-item{background:#FFF7F2;border-radius:10px;padding:10px 6px;text-align:center}
 .dim-item .icon{font-size:20px}.dim-item .name{font-size:12px;font-weight:600;margin-top:3px}.dim-item .desc{font-size:10px;color:var(--tl)}
 .radar-wrap{display:flex;justify-content:center;padding:4px 0}
-.ds-row{display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:1px solid var(--border)}
-.ds-row .val{font-weight:700;color:var(--primary)}
+.ds-row{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid var(--border)}.ds-row .val{font-weight:700;color:var(--primary)}
 .fs{margin-bottom:9px}.fs .st{font-size:12px;font-weight:700;color:var(--primary);margin-bottom:3px}.fs .sb2{font-size:13px;line-height:1.5}
-.lead{border-left:4px solid var(--primary)}.lead.u{border-left-color:var(--danger)}.lead.h{border-left-color:var(--warning)}.lead.m{border-left-color:var(--accent)}
 .alert{border-left:4px solid}.alert.red{border-left-color:var(--danger);background:#FDF2F1}.alert.orange{border-left-color:var(--warning);background:#FEF6E8}
 .mini{font-size:11px;color:var(--primary);border:1px solid var(--primary);padding:3px 10px;border-radius:10px;display:inline-block;cursor:pointer}
 .talk{font-size:12px;line-height:1.5;background:#FAFAFA;padding:8px;border-radius:8px;margin-top:6px;display:none}.talk.open{display:block}
@@ -59,39 +47,36 @@ body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#1A1A2E;d
 .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .stat{background:#F8F9FB;border-radius:10px;padding:12px;text-align:center}
 .stat .num{font-size:22px;font-weight:700;color:var(--primary)}.stat .lb{font-size:11px;color:var(--tl);margin-top:2px}
-.tab-bar{position:absolute;bottom:0;left:0;right:0;height:70px;background:#fff;border-top:1px solid var(--border);display:none;z-index:90}
+.row{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.tab-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;height:62px;background:#fff;border-top:1px solid var(--border);display:none;z-index:90;padding-bottom:env(safe-area-inset-bottom,0)}
 .tab-bar.show{display:flex}
 .tab-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;color:var(--tl)}
 .tab-item.active{color:var(--primary)}
 .tab-icon{font-size:20px;line-height:1}.tab-label{font-size:10px;font-weight:500}
-.toast{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.8);color:#fff;padding:14px 22px;border-radius:12px;font-size:13px;z-index:200;display:none}.toast.show{display:block}
+.toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.8);color:#fff;padding:14px 22px;border-radius:12px;font-size:13px;z-index:200;display:none}.toast.show{display:block}
 </style>
 </head>
 <body>
-<div class="phone">
-<div class="notch"></div>
+<div class="app">
 <div class="sb" id="sb"><span>9:41</span><span>● ● ●</span></div>
 
-<!-- 首页：角色选择 -->
 <div class="screen active" id="home">
 <div class="hd orange"><div class="ht"><h1>星河AI教学运营智能体</h1><div class="sub">以爱赋能，用心发声 · 七彩和弦</div></div></div>
 <div class="content">
 <div class="card"><div class="ct">选择角色入口</div>
 <div class="role-grid">
-<div class="role-card" style="background:linear-gradient(135deg,#FF6B35,#FF8C5A)" onclick="showRole('parent')"><div class="ic">👨‍👩‍👧</div><div class="nm">学员版</div><div class="ds">看进展·收反馈·晒风采</div></div>
-<div class="role-card" style="background:linear-gradient(135deg,#7d3c98,#9B59B6)" onclick="showRole('teacher')"><div class="ic">👩‍🏫</div><div class="nm">教师版</div><div class="ds">课表·学员·发反馈·资源</div></div>
-<div class="role-card" style="background:linear-gradient(135deg,#2980B9,#3498DB)" onclick="showRole('admin')"><div class="ic">📋</div><div class="nm">教务版</div><div class="ds">排课·考勤·消课·档案</div></div>
-<div class="role-card" style="background:linear-gradient(135deg,#1e8449,#27AE60)" onclick="showRole('master')"><div class="ic">🏢</div><div class="nm">校长版</div><div class="ds">预警·看板·审批·招生</div></div>
+<div class="role-card" style="background:linear-gradient(135deg,#FF6B35,#FF8C5A)" onclick="showRole('parent')"><div class="ic">👨‍👩‍👧</div><div class="tx"><div class="nm">学员版</div><div class="ds">看进展·收反馈·晒风采</div></div></div>
+<div class="role-card" style="background:linear-gradient(135deg,#7d3c98,#9B59B6)" onclick="showRole('teacher')"><div class="ic">👩‍🏫</div><div class="tx"><div class="nm">教师版</div><div class="ds">课表·学员·发反馈·资源</div></div></div>
+<div class="role-card" style="background:linear-gradient(135deg,#2980B9,#3498DB)" onclick="showRole('admin')"><div class="ic">📋</div><div class="tx"><div class="nm">教务版</div><div class="ds">排课·考勤·消课·档案·销售</div></div></div>
+<div class="role-card" style="background:linear-gradient(135deg,#1e8449,#27AE60)" onclick="showRole('master')"><div class="ic">🏢</div><div class="tx"><div class="nm">校长版</div><div class="ds">预警·看板·审批·招生</div></div></div>
 </div></div>
 <div class="card"><div class="ct">系统概览</div>
-<div style="font-size:12px;color:var(--tl);line-height:1.8;">四大模块：AI入学测评 / AI学员运营 / AI风险预警 / 学员风采展示<br>底层：校宝在线 + 80㎡录音棚<br>分层：萌星→星耀 七级体系</div></div>
+<div style="font-size:12px;color:var(--tl);line-height:1.8">四大模块：AI入学测评 / AI学员运营 / AI风险预警 / 学员风采展示<br>底层：校宝在线 + 80㎡录音棚<br>分层：萌星→星耀 七级体系</div></div>
 <div class="brand">以爱赋能，用心发声 · 七彩和弦童声学院</div>
-</div>
-</div>
+</div></div>
 
-<!-- ===== 家长版 ===== -->
 <div class="screen" id="p1">
-<div class="hd orange"><div class="back" onclick="goHome()">‹</div><div class="ht"><h1>AI声乐测评</h1><div class="sub">家长版 · 免费 · 15分钟</div></div></div>
+<div class="hd orange"><div class="back" onclick="goHome()">‹</div><div class="ht"><h1>AI声乐测评</h1><div class="sub">学员版 · 免费 · 15分钟</div></div></div>
 <div class="content">
 <div class="card"><div class="ct">五维科学评估</div>
 <div class="dim-grid">
@@ -110,7 +95,7 @@ body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#1A1A2E;d
 <div class="hd orange"><div class="back" onclick="goHome()">‹</div><div class="ht"><h1>学情报告</h1><div class="sub">朵朵 · 8岁 · 2026-07-24</div></div></div>
 <div class="content">
 <div class="card"><div class="ct">五维雷达图</div>
-<div class="radar-wrap"><svg width="210" height="210" viewBox="0 0 200 200">
+<div class="radar-wrap"><svg width="220" height="220" viewBox="0 0 200 200">
 <polygon points="100,20 176.1,75.3 147,164.7 53,164.7 23.9,75.3" fill="none" stroke="#E0E0E0"/>
 <polygon points="100,47 150.4,83.6 131.2,142.9 68.8,142.9 49.6,83.6" fill="none" stroke="#E0E0E0"/>
 <polygon points="100,73 125.7,91.7 115.9,121.8 84.1,121.8 74.3,91.7" fill="none" stroke="#E0E0E0"/>
@@ -156,9 +141,8 @@ body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#1A1A2E;d
 <div class="brand">以爱赋能，用心发声</div>
 </div></div>
 
-<!-- ===== 教务版 ===== -->
 <div class="screen" id="a1">
-<div class="hd blue"><div class="back" onclick="goHome()">‹</div><div class="ht"><h1>排课管理</h1><div class="sub">教务版 · 今日 12 节课</div></div></div>
+<div class="hd blue"><div class="back" onclick="goHome()">‹</div><div class="ht"><h1>排课管理</h1><div class="sub">教务版 · 今日12节课</div></div></div>
 <div class="content">
 <div class="card"><div class="ct">今日课表</div>
 <div class="lst"><div><div class="lst-name">09:00 朵朵 1对1</div><div class="lst-meta">1号教室 · 李老师 · 璨星</div></div><span class="tag tag-green">已排</span></div>
@@ -166,8 +150,7 @@ body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#1A1A2E;d
 <div class="lst"><div><div class="lst-name">14:00 阳阳 1对2</div><div class="lst-meta">1号教室 · 李老师</div></div><span class="tag tag-orange">待确认</span></div>
 <div class="lst"><div><div class="lst-name">16:00 晨星班 1对4</div><div class="lst-meta">2号教室 · 张老师</div></div><span class="tag tag-green">已排</span></div>
 </div>
-<div class="card"><div class="ct">本周排课概览</div>
-<div class="stat-grid"><div class="stat"><div class="num">68</div><div class="lb">本周总课时</div></div><div class="stat"><div class="num">4</div><div class="lb">待确认</div></div></div>
+<div class="card"><div class="ct">本周排课</div><div class="stat-grid"><div class="stat"><div class="num">68</div><div class="lb">本周总课时</div></div><div class="stat"><div class="num">4</div><div class="lb">待确认</div></div></div></div>
 </div></div>
 
 <div class="screen" id="a2">
@@ -179,31 +162,28 @@ body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#1A1A2E;d
 <div class="lst"><div><div class="lst-name">果果</div><div class="lst-meta">14:00 · 已签到</div></div><span class="tag tag-green">到</span></div>
 <div class="lst"><div><div class="lst-name">小宇</div><div class="lst-meta">14:00 · 未到</div></div><span class="tag tag-red">缺勤</span></div>
 </div>
-<div class="card"><div class="ct">本周出勤率</div>
-<div class="stat-grid"><div class="stat"><div class="num">92%</div><div class="lb">出勤率</div></div><div class="stat"><div class="num">3</div><div class="lb">连续缺勤预警</div></div></div>
+<div class="card"><div class="ct">本周出勤率</div><div class="stat-grid"><div class="stat"><div class="num">92%</div><div class="lb">出勤率</div></div><div class="stat"><div class="num">3</div><div class="lb">连续缺勤预警</div></div></div></div>
 </div></div>
 
 <div class="screen" id="a3">
 <div class="hd blue"><div class="back" onclick="goHome()">‹</div><div class="ht"><h1>消课记录</h1><div class="sub">教务版 · 今日消课</div></div></div>
 <div class="content">
 <div class="card"><div class="ct">今日消课</div>
-<div class="lst"><div><div class="lst-name">朵朵 1对1</div><div class="lst-meta">消 1 节 · 余 2 节 · ¥200</div></div><span class="tag tag-blue">已消</span></div>
-<div class="lst"><div><div class="lst-name">萌星班 6人</div><div class="lst-meta">各消 1 节 · 当天请假2人按1对4</div></div><span class="tag tag-blue">已消</span></div>
-<div class="lst"><div><div class="lst-name">果果 1对2</div><div class="lst-meta">消 1 节 · 余 7 节 · ¥150</div></div><span class="tag tag-blue">已消</span></div>
+<div class="lst"><div><div class="lst-name">朵朵 1对1</div><div class="lst-meta">消1节 · 余2节 · ¥200</div></div><span class="tag tag-blue">已消</span></div>
+<div class="lst"><div><div class="lst-name">萌星班 6人</div><div class="lst-meta">各消1节 · 请假2人按1对4</div></div><span class="tag tag-blue">已消</span></div>
+<div class="lst"><div><div class="lst-name">果果 1对2</div><div class="lst-meta">消1节 · 余7节 · ¥150</div></div><span class="tag tag-blue">已消</span></div>
 </div>
-<div class="card"><div class="ct">本月消课</div>
-<div class="stat-grid"><div class="stat"><div class="num">286</div><div class="lb">本月消课节</div></div><div class="stat"><div class="num">¥57k</div><div class="lb">消课收入</div></div></div>
+<div class="card"><div class="ct">本月消课</div><div class="stat-grid"><div class="stat"><div class="num">286</div><div class="lb">本月消课节</div></div><div class="stat"><div class="num">¥57k</div><div class="lb">消课收入</div></div></div></div>
 </div></div>
 
 <div class="screen" id="a4">
-<div class="hd blue"><div class="back" onclick="goHome()">‹</div><div class="ht"><h1>学员档案</h1><div class="sub">教务版 · 312 名学员</div></div></div>
+<div class="hd blue"><div class="back" onclick="goHome()">‹</div><div class="ht"><h1>学员档案</h1><div class="sub">教务版 · 312名学员</div></div></div>
 <div class="content">
 <div class="card"><div class="ct">沉默学员预警</div>
 <div class="lst"><div><div class="lst-name">欣欣</div><div class="lst-meta">沉默65天 · 剩余12节</div></div><span class="tag tag-red">沉默</span></div>
 <div class="lst"><div><div class="lst-name">乐乐</div><div class="lst-meta">沉默62天 · 剩余8节</div></div><span class="tag tag-red">沉默</span></div>
 </div>
-<div class="card"><div class="ct">档案管理</div>
-<div style="font-size:13px;line-height:2">🔍 搜索学员<br>📁 按班型/层级筛选<br>📊 课时余额盘点<br>⚠️ 沉默学员核查（防课时挪用）</div>
+<div class="card"><div class="ct">档案管理</div><div style="font-size:13px;line-height:2">🔍 搜索学员<br>📁 按班型/层级筛选<br>📊 课时余额盘点<br>⚠️ 沉默学员核查（防课时挪用）</div></div>
 </div></div>
 
 <div class="screen" id="a5">
@@ -218,12 +198,9 @@ body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#1A1A2E;d
 <div class="lst"><div><div class="lst-name">小宇</div><div class="lst-meta">测评完成 · 待约体验</div></div><span class="tag tag-blue">待跟进</span></div>
 <div class="lst"><div><div class="lst-name">乐乐</div><div class="lst-meta">体验课已上 · 待转化</div></div><span class="tag tag-orange">高</span></div>
 </div>
-<div class="card"><div class="ct">本月业绩</div>
-<div class="stat-grid"><div class="stat"><div class="num">28</div><div class="lb">新签</div></div><div class="stat"><div class="num">45</div><div class="lb">续费</div></div></div>
-</div>
+<div class="card"><div class="ct">本月业绩</div><div class="stat-grid"><div class="stat"><div class="num">28</div><div class="lb">新签</div></div><div class="stat"><div class="num">45</div><div class="lb">续费</div></div></div></div>
 </div></div>
 
-<!-- ===== 教师版 ===== -->
 <div class="screen" id="t1">
 <div class="hd purple"><div class="back" onclick="goHome()">‹</div><div class="ht"><h1>我的课表</h1><div class="sub">教师版 · 李老师 · 今日4节</div></div></div>
 <div class="content">
@@ -233,16 +210,17 @@ body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#1A1A2E;d
 <div class="lst"><div><div class="lst-name">14:00 果果 1对1</div><div class="lst-meta">趣星 · 节奏入门</div></div><span class="tag tag-green">准备</span></div>
 <div class="lst"><div><div class="lst-name">16:00 晨星班 1对4</div><div class="lst-meta">快乐阳光曲目</div></div><span class="tag tag-green">准备</span></div>
 </div></div>
+</div></div>
 
 <div class="screen" id="t2">
-<div class="hd purple"><div class="back" onclick="goHome()">‹</div><div class="ht"><h1>我的学员</h1><div class="sub">教师版 · 32 名学员</div></div></div>
+<div class="hd purple"><div class="back" onclick="goHome()">‹</div><div class="ht"><h1>我的学员</h1><div class="sub">教师版 · 32名学员</div></div></div>
 <div class="content">
 <div class="card"><div class="ct">学员列表</div>
 <div class="lst"><div><div class="lst-name">朵朵</div><div class="lst-meta">璨星 · 余2节 · 进步快</div></div><span class="tag tag-green">优</span></div>
 <div class="lst"><div><div class="lst-name">阳阳</div><div class="lst-meta">晨星 · 余4节 · 待考级</div></div><span class="tag tag-blue">良</span></div>
 <div class="lst"><div><div class="lst-name">果果</div><div class="lst-meta">趣星 · 余7节</div></div><span class="tag tag-blue">良</span></div>
 </div>
-<div class="card"><div class="ct">待录学情</div><div style="font-size:13px;color:var(--tl)">3 名学员本周学情未录入</div>
+<div class="card"><div class="ct">待录学情</div><div style="font-size:13px;color:var(--tl)">3名学员本周学情未录入</div>
 <div class="btn" style="background:var(--purple)" onclick="toast('进入学情录入')">去录入</div></div>
 </div></div>
 
@@ -264,15 +242,13 @@ body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#1A1A2E;d
 <div class="hd purple"><div class="back" onclick="goHome()">‹</div><div class="ht"><h1>教学资源</h1><div class="sub">教师版 · 曲库/课件</div></div></div>
 <div class="content">
 <div class="card"><div class="ct">曲库</div>
-<div class="lst"><div><div class="lst-name">快乐阳光教材 2026</div><div class="lst-meta">200+ 首 · 按难度分</div></div><span class="tag tag-green">可用</span></div>
+<div class="lst"><div><div class="lst-name">快乐阳光教材 2026</div><div class="lst-meta">200+首 · 按难度分</div></div><span class="tag tag-green">可用</span></div>
 <div class="lst"><div><div class="lst-name">流行歌曲库</div><div class="lst-meta">140首 · 每月+10</div></div><span class="tag tag-green">可用</span></div>
 <div class="lst"><div><div class="lst-name">艺考曲库</div><div class="lst-meta">初三/高二</div></div><span class="tag tag-blue">待更新</span></div>
 </div>
-<div class="card"><div class="ct">教学工具</div>
-<div style="font-size:13px;line-height:2">🎵 符宝音基课件（萌星/趣星）<br>🎤 符宝声乐课件（动态乐谱）<br>📋 考级曲目库（江苏音协）</div>
+<div class="card"><div class="ct">教学工具</div><div style="font-size:13px;line-height:2">🎵 符宝音基课件（萌星/趣星）<br>🎤 符宝声乐课件（动态乐谱）<br>📋 考级曲目库（江苏音协）</div></div>
 </div></div>
 
-<!-- ===== 校长版 ===== -->
 <div class="screen" id="m1">
 <div class="hd green"><div class="back" onclick="goHome()">‹</div><div class="ht"><h1>风险预警</h1><div class="sub">校长版 · 今日3条</div></div></div>
 <div class="content">
@@ -296,14 +272,11 @@ body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#1A1A2E;d
 <div class="stat"><div class="num">¥57k</div><div class="lb">本月营收</div></div>
 <div class="stat"><div class="num">2.1%</div><div class="lb">退费率</div></div>
 </div></div>
-<div class="card"><div class="ct">续费转化</div>
-<div class="stat-grid">
-<div class="stat"><div class="num">78%</div><div class="lb">续费率</div></div>
-<div class="stat"><div class="num">+10%</div><div class="lb">同比提升</div></div>
-</div></div>
+<div class="card"><div class="ct">续费转化</div><div class="stat-grid"><div class="stat"><div class="num">78%</div><div class="lb">续费率</div></div><div class="stat"><div class="num">+10%</div><div class="lb">同比提升</div></div></div></div>
 <div class="card"><div class="ct">教师绩效</div>
 <div class="lst"><div><div class="lst-name">李老师</div><div class="lst-meta">消课86节 · 续费率85%</div></div><span class="tag tag-green">优</span></div>
 <div class="lst"><div><div class="lst-name">王老师</div><div class="lst-meta">消课72节 · 续费率76%</div></div><span class="tag tag-blue">良</span></div>
+</div></div>
 </div></div>
 
 <div class="screen" id="m3">
@@ -315,6 +288,7 @@ body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#1A1A2E;d
 </div>
 <div class="card"><div class="ct">退费审批</div>
 <div class="lst"><div><div class="lst-name">欣欣 退费¥2400</div><div class="lst-meta">沉默学员 · 需核实</div></div><span class="tag tag-red">待核实</span></div>
+</div></div>
 </div></div>
 
 <div class="screen" id="m4">
@@ -332,8 +306,8 @@ body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#1A1A2E;d
 <div class="lst"><div><div class="lst-name">地推扫码</div><div class="lst-meta">留资52 · 转化8</div></div><span class="tag tag-blue">良</span></div>
 <div class="lst"><div><div class="lst-name">转介绍</div><div class="lst-meta">留资36 · 转化6</div></div><span class="tag tag-green">优</span></div>
 </div></div>
+</div></div>
 
-<!-- tab bars -->
 <div class="tab-bar" id="tab-parent">
 <div class="tab-item active" onclick="showScreen('p1')"><div class="tab-icon">🎤</div><div class="tab-label">测评</div></div>
 <div class="tab-item" onclick="showScreen('p2')"><div class="tab-icon">📊</div><div class="tab-label">报告</div></div>
@@ -364,13 +338,10 @@ body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#1A1A2E;d
 <script>
 var roles={parent:['p1','p2','p3','p4'],admin:['a1','a2','a3','a4','a5'],teacher:['t1','t2','t3','t4'],master:['m1','m2','m3','m4']};
 var cur=null;
-function showRole(r){try{cur=r;document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tab-bar').forEach(t=>t.classList.remove('show'));document.getElementById('tab-'+r).classList.add('show');showScreen(roles[r][0]);var dark=(r==='admin'||r==='master');document.getElementById('sb').className='sb'+(dark?' dark':'');}catch(e){alert('showRole err: '+e.message+' [r='+r+']');}}
-function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');if(cur){document.querySelectorAll('#tab-'+cur+' .tab-item').forEach(t=>t.classList.remove('active'));var i=roles[cur].indexOf(id);if(i>=0)document.querySelectorAll('#tab-'+cur+' .tab-item')[i].classList.add('active');}}
-function goHome(){cur=null;document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tab-bar').forEach(t=>t.classList.remove('show'));document.getElementById('home').classList.add('active');document.getElementById('sb').className='sb';}
+function showRole(r){try{cur=r;document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tab-bar').forEach(t=>t.classList.remove('show'));document.getElementById('tab-'+r).classList.add('show');showScreen(roles[r][0]);var dark=(r==='admin'||r==='master');document.getElementById('sb').className='sb'+(dark?' dark':'');window.scrollTo(0,0);}catch(e){alert('err:'+e.message+' r='+r);}}
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');if(cur){document.querySelectorAll('#tab-'+cur+' .tab-item').forEach(t=>t.classList.remove('active'));var i=roles[cur].indexOf(id);if(i>=0)document.querySelectorAll('#tab-'+cur+' .tab-item')[i].classList.add('active');}window.scrollTo(0,0);}
+function goHome(){cur=null;document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tab-bar').forEach(t=>t.classList.remove('show'));document.getElementById('home').classList.add('active');document.getElementById('sb').className='sb';window.scrollTo(0,0);}
 function toast(m){var t=document.getElementById('toast');t.innerText=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},1800);}
-window.addEventListener('DOMContentLoaded',function(){var h=location.hash.replace('#','');if(h&&roles[h])showRole(h);var p=new URLSearchParams(location.search);if(p.get('role')&&roles[p.get('role')])showRole(p.get('role'));});
-function fitPhone(){var p=document.querySelector('.phone');if(p&&window.innerHeight>400)p.style.height=window.innerHeight+'px';}
-window.addEventListener('resize',fitPhone);fitPhone();
 </script>
 </body>
 </html>
