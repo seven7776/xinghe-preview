@@ -58,6 +58,7 @@ body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#1A1A2E;-
 </head>
 <body>
 <div class="app">
+<div id="dbg" style="position:fixed;top:0;left:0;right:0;background:#e74c3c;color:#fff;z-index:9999;font-size:12px;padding:4px;text-align:center;font-weight:600;">就绪 v10</div>
 <div class="sb" id="sb"><span>9:41</span><span>● ● ●</span></div>
 
 <div class="screen active" id="home">
@@ -338,10 +339,11 @@ body{font-family:"Microsoft YaHei",-apple-system,sans-serif;background:#1A1A2E;-
 <script>
 var roles={parent:['p1','p2','p3','p4'],admin:['a1','a2','a3','a4','a5'],teacher:['t1','t2','t3','t4'],master:['m1','m2','m3','m4']};
 var cur=null;
-function showRole(r){try{cur=r;document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tab-bar').forEach(t=>t.classList.remove('show'));document.getElementById('tab-'+r).classList.add('show');showScreen(roles[r][0]);var dark=(r==='admin'||r==='master');document.getElementById('sb').className='sb'+(dark?' dark':'');window.scrollTo(0,0);}catch(e){alert('err:'+e.message+' r='+r);}}
+function showRole(r){try{document.getElementById('dbg').innerText='点击:'+r;cur=r;document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tab-bar').forEach(t=>t.classList.remove('show'));document.getElementById('tab-'+r).classList.add('show');showScreen(roles[r][0]);var dark=(r==='admin'||r==='master');document.getElementById('sb').className='sb'+(dark?' dark':'');window.scrollTo(0,0);}catch(e){document.getElementById('dbg').innerText='错误:'+e.message+' ['+r+']';}}
 function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');if(cur){document.querySelectorAll('#tab-'+cur+' .tab-item').forEach(t=>t.classList.remove('active'));var i=roles[cur].indexOf(id);if(i>=0)document.querySelectorAll('#tab-'+cur+' .tab-item')[i].classList.add('active');}window.scrollTo(0,0);}
 function goHome(){cur=null;document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tab-bar').forEach(t=>t.classList.remove('show'));document.getElementById('home').classList.add('active');document.getElementById('sb').className='sb';window.scrollTo(0,0);}
 function toast(m){var t=document.getElementById('toast');t.innerText=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},1800);}
+window.addEventListener('DOMContentLoaded',function(){var p=new URLSearchParams(location.search);if(p.get('role')&&roles[p.get('role')])showRole(p.get('role'));});
 </script>
 </body>
 </html>
